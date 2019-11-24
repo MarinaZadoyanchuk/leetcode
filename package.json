@@ -1,0 +1,27 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init-problem": "node ./scripts/init-problem",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarinaZadoyanchuk/leetcode.git"
+  },
+  "author": "Marina Zadoyanchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarinaZadoyanchuk/leetcode/issues"
+  },
+  "homepage": "https://github.com/MarinaZadoyanchuk/leetcode#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "chalk": "^3.0.0",
+    "eslint": "^6.7.0",
+    "inquirer": "^7.0.0"
+  }
+}

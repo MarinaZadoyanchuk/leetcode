@@ -9,7 +9,7 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-function preorderTraversal (root) {
+function preorderTraversal(root) {
   if (!root) {
       return []
   }
