@@ -20,7 +20,7 @@ function getListByArray(array) {
   return root
 }
 
-const areListsEqual = (list1, list2) => {
+function areListsEqual(list1, list2) {
   let current1 = list1
   let current2 = list2
 
@@ -37,4 +37,23 @@ const areListsEqual = (list1, list2) => {
   return true
 }
 
-module.exports = {getListByArray, ListNode, areListsEqual}
+
+function memoize(func, getCacheKey) {
+  const cache = {}
+
+  function memoized() {
+    const key = getCacheKey ? getCacheKey(arguments) : arguments[0]
+    if (cache.hasOwnProperty(key)) {
+      return cache[key]
+    }
+
+    const result = func.apply(this, arguments)
+    cache[key] = result
+    
+    return result
+  }
+
+  return memoized
+}
+
+module.exports = {getListByArray, ListNode, areListsEqual, memoize}
