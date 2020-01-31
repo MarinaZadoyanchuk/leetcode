@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "init-problem": "node ./scripts/init-problem",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ts-node/register 'problems/**/*.test.ts'"
   },
   "repository": {
     "type": "git",
@@ -18,10 +18,16 @@
   },
   "homepage": "https://github.com/MarinaZadoyanchuk/leetcode#readme",
   "devDependencies": {
+    "@types/chai": "^4.2.8",
+    "@types/mocha": "^7.0.1",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
+    "chai": "^4.2.0",
     "chalk": "^3.0.0",
     "eslint": "^6.7.0",
-    "inquirer": "^7.0.0"
+    "inquirer": "^7.0.0",
+    "mocha": "^7.0.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
   }
 }
