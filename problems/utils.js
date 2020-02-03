@@ -1,6 +1,8 @@
-function ListNode(val) {
-  this.val = val
-  this.next = null
+class ListNode {
+  constructor(val) {
+    this.val = val
+    this.next = null
+  }
 }
 
 function getListByArray(array) {
