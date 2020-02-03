@@ -1,7 +1,7 @@
 import {twoSum} from './index'
 import {expect} from 'chai'
 
-describe.only('Two sum problem', () => {
+describe('Two sum problem', () => {
   it('find sum indices', () => {
     expect(twoSum([1, 3, 3, 4, 5], 5)).to.eql([0, 3])
     expect(twoSum([3, 2, 4], 6)).to.eql([1, 2])

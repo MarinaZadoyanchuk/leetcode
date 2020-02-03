@@ -1,4 +1,8 @@
-export function twoSum(nums: number [], target) {
+/* 
+  Given an array of integers, return indices of the two numbers 
+  such that they add up to a specific target. 
+*/
+export function twoSum(nums: number [], target): number [] {
   const seenIndexes = new Map()
   let i = 0
 

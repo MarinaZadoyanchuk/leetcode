@@ -1,6 +1,16 @@
+/* 
+    You are given two non-empty linked lists representing two non-negative integers. 
+    The digits are stored in reverse order and each of their nodes contain a single digit. 
+    Add the two numbers and return it as a linked list.
+
+    Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+    Output: 7 -> 0 -> 8
+    Explanation: 342 + 465 = 807.
+*/
+
 import ListNode from '../types/list-node'
 
-export function addTwoNumbers(l1: ListNode<number>, l2: ListNode<number>) {
+export function addTwoNumbers(l1: ListNode<number>, l2: ListNode<number>): ListNode<number> {
   if (!l1 && !l2) {
     return null
   }
@@ -33,7 +43,7 @@ export function addTwoNumbers(l1: ListNode<number>, l2: ListNode<number>) {
 
   return root
 }
-export function listToNumber(l1: ListNode<number>) {
+export function listToNumber(l1: ListNode<number>): number {
   let res = ''
   while(l1) {
     res = `${l1.val}${res}`
@@ -43,7 +53,7 @@ export function listToNumber(l1: ListNode<number>) {
   return +res
 }
 
-export function numberToList(n: number) {
+export function numberToList(n: number): ListNode<number> {
   let root = null
   let last = null
 

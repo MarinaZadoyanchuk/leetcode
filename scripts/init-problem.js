@@ -41,8 +41,8 @@ function createProblem() {
         fs.mkdirSync(pathToDirectory)
 
 
-        const indexPath = 'index.js'
-        const indexTestPath = 'index.test.js'
+        const indexPath = 'index.ts'
+        const indexTestPath = 'index.test.ts'
         const indexContent = `/* ${problemDesc} */`
 
         fs.writeFileSync(path.join(pathToDirectory, indexPath), indexContent)
