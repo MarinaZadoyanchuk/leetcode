@@ -2,7 +2,7 @@ import {addTwoNumbers, listToNumber, numberToList} from './index'
 import ListNode from '../types/list-node'
 import {expect} from 'chai'
 
-describe.only('Add two numbers', () => {
+describe('Add two numbers', () => {
   it('number to list', () => {
     expect(numberToList(0)).to.eql(new ListNode(0))
     const res = new ListNode(2)
@@ -15,7 +15,7 @@ describe.only('Add two numbers', () => {
     expect(listToNumber(numberToList(12))).to.eql(12)
   })
 
-  it.only('add two numbers', () => {
+  it('add two numbers', () => {
     expect(addTwoNumbers(numberToList(0), numberToList(0))).to.eql(numberToList(0))
     expect(addTwoNumbers(numberToList(56), numberToList(67))).to.eql(numberToList(123))
     expect(addTwoNumbers(numberToList(465), numberToList(24))).to.eql(numberToList(489))

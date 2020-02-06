@@ -1,7 +1,7 @@
 import {lengthOfLongestSubstring} from './index'
 import {expect} from 'chai'
 
-describe.only('Length of longest substring', () => {
+describe('Length of longest substring', () => {
   it('check lengthOfLongestSubstring', () => {
     expect(lengthOfLongestSubstring('')).equal(0, 'zero check')
     expect(lengthOfLongestSubstring('abcabcbb')).equal(3)
