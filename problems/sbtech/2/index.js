@@ -1,9 +1,9 @@
-function getDistance([r1, g1, b1], [r2, g2, b2]) {
+function getSquareOfDistance([r1, g1, b1], [r2, g2, b2]) {
   const rDiff = Math.pow(r1 - r2, 2)
   const gDiff = Math.pow(g1 - g2, 2)
   const bDiff = Math.pow(b1 - b2, 2)
 
-  return Math.sqrt(rDiff + gDiff + bDiff)
+  return rDiff + gDiff + bDiff
 }
 
 const COLOR_POINTS = {
@@ -26,13 +26,13 @@ function convertBinaryStringToPoint(str) {
 function getClosestColorPoint(point) {
   let min = {distance: Infinity}
   for(let [color, colorPoint] of Object.entries(COLOR_POINTS)) {
-    const distance = getDistance(point, colorPoint)
+    const distance = getSquareOfDistance(point, colorPoint)
 
     if (min.distance > distance) {
       min.distance = distance
       min.color = color
     } else if (min.distance === distance) {
-      return 'Ambiguous'
+      min.color = 'Ambiguous'
     }
   }
 
@@ -43,4 +43,5 @@ function closestColor(pixels) {
   return pixels.map(pixel => getClosestColorPoint(convertBinaryStringToPoint(pixel)))
 }
 
-console.log(closestColor(['010111011010010110000011', '000000001111111111111111']))
+console.log(closestColor([
+  "110010011110101000010101"]))
