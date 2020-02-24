@@ -24,21 +24,32 @@ function httpsAsyncWrapper(url) {
   })
 }
 
-async function loadMoviesByQuery(query, page = 1, titles = []) {
-  const parameters = convertObjectToGetParameters({...query, page})
-  const res = await httpsAsyncWrapper(`${BASE_URL}?${parameters}`)
+async function loadMoviesByQuery(query, cb) {
+  let page = 1
+  let totalPages = 0
 
-  if (res.total_pages > page) {
-    return await loadMoviesByQuery(query, page + 1, [...titles, ...res.data])
-  }
-
-  return [...titles, ...res.data]
+  do {
+    const parameters = convertObjectToGetParameters({...query, page})
+    const res = await httpsAsyncWrapper(`${BASE_URL}?${parameters}`)
+    cb(res.data)
+    totalPages = res.total_pages
+    page++
+  } while(totalPages >= page)
 }
 
-async function getMovieTitles(substr) {
-  const movies = await loadMoviesByQuery({Title: substr})
-
-  return movies.map(({Title}) => Title).sort()
+function getMovieTitles(substr) {
+  return new Promise((resolve, reject) => {
+    const titles = []
+    loadMoviesByQuery(
+      {Title: substr},
+      (data) => {
+        titles.push(...data.map(({Title}) => Title))
+    })
+      .then(() => {
+        resolve(titles.sort())
+      })
+      .catch(reject)
+  })
 }
 
 
