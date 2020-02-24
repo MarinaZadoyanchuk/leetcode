@@ -37,19 +37,15 @@ async function loadMoviesByQuery(query, cb) {
   } while(totalPages >= page)
 }
 
-function getMovieTitles(substr) {
-  return new Promise((resolve, reject) => {
-    const titles = []
-    loadMoviesByQuery(
+async function getMovieTitles(substr) {
+  const titles = []
+  await loadMoviesByQuery(
       {Title: substr},
       (data) => {
         titles.push(...data.map(({Title}) => Title))
-    })
-      .then(() => {
-        resolve(titles.sort())
-      })
-      .catch(reject)
   })
+
+  return titles.sort()
 }
 
 
