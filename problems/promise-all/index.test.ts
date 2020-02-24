@@ -1,7 +1,7 @@
 import promiseAll from './index'
 import {expect} from 'chai'
 
-describe.only('custom promise all', () => {
+describe('custom promise all', () => {
   it('empty array', async () => {
     const res = await promiseAll([])
     expect(res).to.eql([])
